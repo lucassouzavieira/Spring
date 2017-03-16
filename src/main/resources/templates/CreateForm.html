@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Lista de Clientes</title>
+<title>Cadastrar cliente</title>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -16,29 +16,18 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="panel panel-default" style="margin: 10px">
-		<div class="panel-heading">
-			<h1 class="panel-title">Lista de Clientes</h1>
+	<form class="form-inline" method="POST" style="margin: 20px 0"
+		th:object="${cliente}">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Nome"
+				th:field="*{nome}" /> 
+			<input type="text" class="form-control"
+				placeholder="CPF" th:field="*{cpf}" /> 
+			<input type="text"
+				class="form-control" placeholder="Email" th:field="*{cpf}" />
+
+			<button type="submit" class="btn btn-primary">Adicionar</button>
 		</div>
-		<div class="panel-body">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Nome</th>
-						<th>CPF</th>
-						<th>Email</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="cliente : ${clientes}">
-						<td th:text="${cliente.id}"></td>
-						<td th:text="${cliente.nome}"></td>
-						<td th:text="${cliente.cpf}"></td>
-						<td th:text="${cliente.email}"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+	</form>
 </body>
 </html>

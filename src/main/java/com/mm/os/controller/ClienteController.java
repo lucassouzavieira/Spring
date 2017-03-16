@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import com.mm.os.repository.Clientes;
 
 @Controller
@@ -17,6 +18,16 @@ public class ClienteController {
 		ModelAndView modelAndView = new ModelAndView("Hello");
 		modelAndView.addObject("clientes", clientes.findAll());
 		return modelAndView;
+	}
+	
+	@GetMapping("/clientes/create")
+	public String create(){
+		return "CreateForm";
+	}
+	
+	@PostMapping("/clientes")
+	public String store(){
+		return "";
 	}
 
 }
