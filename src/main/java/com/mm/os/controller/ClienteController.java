@@ -21,8 +21,9 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/clientes/create")
-	public String create(){
-		return "CreateForm";
+	public ModelAndView create(){
+		ModelAndView modelAndView = new ModelAndView("CreateForm");
+		return modelAndView;
 	}
 	
 	@PostMapping("/clientes")
